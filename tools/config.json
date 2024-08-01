@@ -1,0 +1,6 @@
+{
+    "_comment": "This configuration file is dedicated to the tools used to build the project.",
+    "addonIdentifier": "bedrockIdentity",
+    "usePreview": false,
+    "useBDS": false
+}

@@ -1,0 +1,32 @@
+{
+  "name": "bedrock-identity",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun tools/watch.ts"
+  },
+  "author": {
+    "name": "lightyisreal",
+    "url": "https://lighty.tech",
+    "email": "45460688+lightyisreal@users.noreply.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lightyisreal/bedrock-identity.git"
+  },
+  "license": "GPL-3.0-only",
+  "devDependencies": {
+    "@braintree/uuid": "^1.0.0",
+    "@types/bun": "latest",
+    "@types/text-encoding": "^0.0.39",
+    "chokidar": "^3.6.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@minecraft/server": "1.12.0-beta.1.21.3-stable",
+    "@minecraft/server-ui": "1.2.0-beta.1.21.3-stable",
+    "text-encoding": "^0.7.0"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "pretty": true,
+    "lib": [
+      "es2020",
+      "DOM"
+    ],
+    "target": "ES2021",
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "strict": true,
+    "strictBindCallApply": false,
+    "useUnknownInCatchVariables": false,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    "skipLibCheck": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "preserveConstEnums": true,
+    "newLine": "lf",
+    "types": [
+      "./types/lib.d.ts"
+    ],
+    "sourceMap": true,
+    "baseUrl": "lib",
+  },
+  "include": [
+    "src",
+    "lib",
+  ],
+  "exclude": [
+    "scripts",
+    "tools",
+    "node_modules"
+  ]
+}
