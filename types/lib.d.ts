@@ -1,6 +1,9 @@
-export { };
+import { DynamicDB } from "dynamic-db";}
 
-declare module '@minecraft/server' {
-    interface Player {
-    }
+export {};
+
+declare module "@minecraft/server" {
+  interface Player {
+    options: DynamicDB;
+  }
 }

@@ -1,13 +1,13 @@
 {
-    "format_version": "1.20.81",
-    "minecraft:item": {
-        "description": {
-            "identifier": "lighty:identity_configuration_book",
-            "menu_category": {
-                "category": "items",
-                "is_hidden_in_commands": false
-            },
-            "is_experimental": false
-        }
+  "format_version": "1.20.81",
+  "minecraft:item": {
+    "description": {
+      "identifier": "lighty:identity_configuration_book",
+      "menu_category": {
+        "category": "items",
+        "is_hidden_in_commands": false
+      },
+      "is_experimental": false
     }
+  }
 }

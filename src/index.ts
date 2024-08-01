@@ -1,32 +1,31 @@
-import * as server from "@minecraft/server";
+import { world, system } from "@minecraft/server";
 import { DynamicDB } from "../lib/dynamic-db";
 import { parseArguments } from "utils/arguments-parser";
 import { Commands } from "./commands";
 
-export const database = new DynamicDB("bedrock-identity", server.world);
+export const database = new DynamicDB("bedrock-identity", world);
 
 let firstInitializationTimeout: number;
 
-server.world.afterEvents.worldInitialize.subscribe(() => {
+world.afterEvents.worldInitialize.subscribe(() => {
   if (!database.get("command-prefix")) database.set("command-prefix", "!");
   database.save();
 
-  firstInitializationTimeout = server.system.runInterval(() => {
-    if (server.world.getAllPlayers().length > 0) {
-      for (const player of server.world.getAllPlayers())
-        initializePlayer(player);
-      server.system.clearRun(firstInitializationTimeout);
+  firstInitializationTimeout = system.runInterval(() => {
+    if (world.getAllPlayers().length > 0) {
+      for (const player of world.getAllPlayers()) initializePlayer(player);
+      system.clearRun(firstInitializationTimeout);
     }
   }, 5);
 });
 
-server.world.afterEvents.playerJoin.subscribe((event) => {
-  const player = server.world.getPlayers({ name: event.playerName })[0];
+world.afterEvents.playerJoin.subscribe((event) => {
+  const player = world.getPlayers({ name: event.playerName })[0];
   if (!player) return;
-  server.system.run(() => initializePlayer(player));
+  system.run(() => initializePlayer(player));
 });
 
-server.world.beforeEvents.chatSend.subscribe((event) => {
+world.beforeEvents.chatSend.subscribe((event) => {
   const msg = event.message;
   const player = event.sender;
   if (msg.startsWith(database.get("command-prefix"))) {
@@ -44,11 +43,11 @@ server.world.beforeEvents.chatSend.subscribe((event) => {
     command.args.forEach((arg, i) => {
       args[arg.name] = parsedArgs[i];
     });
-    server.system.run(() => command.callback(player, args));
+    system.run(() => command.callback(player, args));
     return;
   }
 });
 
 async function initializePlayer(player: server.Player) {
-  player.sendMessage("Hi!");
+  player.options = new DynamicDB("bedrock-identity", player);
 }

@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Identity Integration",
+    "description": "Express your identity in your Minecraft Bedrock Edition world/server.",
+    "uuid": "5a12b3cf-f075-42db-9e28-42211e09d724",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "description": "Express your identity in your Minecraft Bedrock Edition world/server.",
+      "type": "resources",
+      "uuid": "81c1a6f7-624f-4c04-86bc-a394fc075ca9",
+      "version": [1, 0, 0]
+    }
+  ]
+}
